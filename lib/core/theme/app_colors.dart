@@ -9,7 +9,7 @@ class AppColors {
   static const Color primaryBlue = Color(0xFF1976D2); // Material Blue 700
 
   // Secondary Color - Electric Yellow (Energy/Action)
-  static const Color secondaryYellow = Color(0xFFC107); // Material Amber 500
+  static const Color secondaryYellow = Color(0xFFFFC107); // Material Amber 500
 
   // Tertiary Color - Red (Fire-type and Urgent Actions)
   static const Color tertiaryRed = Color(0xFFD32F2F); // Material Red 700
@@ -55,4 +55,22 @@ class AppColors {
     'Ultra Rare': Color(0xFF7B1FA2),
     'Secret Rare': Color(0xFFFFD700),
   };
+
+  // Badge colors for notifications
+  static const Color badgeError = Color(0xFFF44336); // Material Red 500
+  static const Color badgeWarning = Color(0xFFFF9800); // Material Orange 500
+  static const Color badgeInfo = Color(0xFF1976D2); // Material Blue 700
+
+  // Utility methods for opacity variants
+  /// Returns color with 87% opacity (high emphasis)
+  static Color withHighEmphasis(Color color) => color.withOpacity(0.87);
+
+  /// Returns color with 60% opacity (medium emphasis)
+  static Color withMediumEmphasis(Color color) => color.withOpacity(0.60);
+
+  /// Returns color with 38% opacity (disabled)
+  static Color withDisabledEmphasis(Color color) => color.withOpacity(0.38);
+
+  /// Returns color with 12% opacity (dividers)
+  static Color withDividerEmphasis(Color color) => color.withOpacity(0.12);
 }
