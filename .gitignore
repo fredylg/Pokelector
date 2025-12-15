@@ -5,9 +5,11 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -30,7 +32,7 @@ migrate_working_dir/
 .packages
 .pub-cache/
 .pub/
-/build/
+build/
 
 # Symbolication related
 app.*.symbols
@@ -103,4 +105,22 @@ firebase_options.dart
 
 # Prompts folder (project-specific)
 prompts/
+
+# IDE and Editor files
+.metadata/
+.claude/
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Coverage
+coverage/
+*.lcov
+
+# Test related
+test/.test_coverage.dart
 
