@@ -1,0 +1,15 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // User-specific files (scan images, etc.) - only accessible by the user
+    match /users/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Temporary scan images - short-lived access
+    match /scans/{userId}/{scanId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      // TODO: Add TTL logic in functions to clean up old scans
+    }
+  }
+}

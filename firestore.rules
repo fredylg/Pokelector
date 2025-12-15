@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // User data - only accessible by the authenticated user
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // User subcollections (collection, decks, etc.)
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Card database - read-only for all authenticated users
+    match /cards/{cardId} {
+      allow read: if request.auth != null;
+    }
+
+    match /sets/{setId} {
+      allow read: if request.auth != null;
+    }
+
+    // Meta information - read-only
+    match /meta/{document} {
+      allow read: if request.auth != null;
+    }
+  }
+}
