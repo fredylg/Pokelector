@@ -23,6 +23,16 @@ class AuthProvider extends ChangeNotifier {
     _initializeAuthState();
   }
 
+  // Check if Firebase is available
+  bool get isFirebaseAvailable {
+    try {
+      auth.FirebaseAuth.instance;
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   AppUser? get currentUser => _currentUser;
   bool get isLoading => _isLoading;
   bool get isAuthenticated => _currentUser != null;

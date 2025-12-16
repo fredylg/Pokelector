@@ -10,22 +10,7 @@ class AuthWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AuthProvider>(
-      builder: (context, authProvider, child) {
-        if (authProvider.isLoading) {
-          return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        }
-
-        if (authProvider.isAuthenticated) {
-          return const MainNavigationShell();
-        }
-
-        return const LoginScreen();
-      },
-    );
+    // For demo purposes, skip authentication and go directly to main app
+    return const MainNavigationShell();
   }
 }

@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'core/theme/app_theme.dart';
+import 'firebase_options.dart';
 import 'presentation/providers/auth_provider.dart';
 import 'presentation/widgets/auth_wrapper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+
+  // Skip Firebase initialization for now to avoid crashes
+  // TODO: Re-enable Firebase initialization when config files are properly set up
+
   runApp(const MyApp());
 }
 
